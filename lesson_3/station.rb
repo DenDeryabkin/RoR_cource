@@ -1,10 +1,4 @@
-# Класс Station (Станция):
-# Имеет название, которое указывается при ее создании
-# Может принимать поезда (по одному за раз)
-# Может возвращать список всех поездов на станции, находящиеся в текущий момент
-# Может возвращать список поездов на станции по типу (см. ниже): кол-во грузовых, пассажирских
-# Может отправлять поезда (по одному за раз, при этом, поезд удаляется из списка поездов, находящихся на станции).
-
+# Класс Station
 class Station
   attr_reader :name, :trains
   def initialize(name)
@@ -17,9 +11,8 @@ class Station
   end
 end
 
+
 #Класс Train (Поезд):
-#
-# Имеет номер (произвольная строка) и тип (грузовой, пассажирский) и количество вагонов, эти данные указываются при создании экземпляра класса
 class Train
   attr_reader :number, :type, :wagons
   attr_accessor :current_speed
@@ -55,13 +48,18 @@ class Train
   end
 
   def gets_route(route)
+    @route = route
+    @route.stations[0].add_train(self)
+    @current_stations = 0
+  end
+  
   end
 
-
+  def
 end
 
 
-
+#Класс Route
 class Route
   attr_accessor :stations
 
