@@ -1,13 +1,26 @@
 # Класс Station
 class Station
   attr_reader :name, :trains
+  attr_accessor :train_type
+
   def initialize(name)
     @name = name
     @trains = []
+    @train_type = {passenger: [], cargo: []}
   end
 
   def add_train(type)
-    @trains << type
+    if type == :passenger
+      @train_type[:passenger] << type
+    elsif
+      @train_type[:cargo] << type
+    else
+      @trains << type
+    end
+  end
+
+  def train_types(type)
+    @trains.each { |train| train.type == type }.size
   end
 end
 
@@ -85,6 +98,6 @@ class Route
 end
 
 
-station = Station.new('ABC')
-train = Train.new(195, 'pass', 10)
-route = Route.new('MSK', 'SPB')
+# station = Station.new('ABC')
+# train = Train.new(195, 'pass', 10)
+# route = Route.new('MSK', 'SPB')
