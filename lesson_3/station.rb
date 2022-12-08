@@ -48,14 +48,16 @@ class Train
   end
 
   def gets_route(route)
-    @route = route
-    @route.stations[0].add_train(self)
+    self.route = route
+    self.route.stations[0].add_train(self)
     @current_stations = 0
   end
-  
+  def move_forward
+    @current_stations += 1
   end
-
-  def
+  def move_back
+    @current_stations -= 1
+  end
 end
 
 
@@ -83,4 +85,6 @@ class Route
 end
 
 
-
+station = Station.new('ABC')
+train = Train.new(195, 'pass', 10)
+route = Route.new('MSK', 'SPB')
