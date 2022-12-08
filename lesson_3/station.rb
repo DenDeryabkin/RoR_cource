@@ -60,25 +60,24 @@ train = Train.new(1,'pass',10)
 
 
 class Route
-  attr_reader :firs_station, :list_station, :last_station
+  attr_accessor :stations
 
-  def initialize(firstStation, lastStation)
-    @firs_station = firstStation
-    @last_station = lastStation
-    @list_station = []
+  def initialize(first_station, last_station)
+    @stations = [first_station, last_station]
   end
 
-  def add_stations(addStation)
-    @list_station << addStation
+  def add_station(station)
+    @stations.insert(-2, station)
   end
 
-  def remove_stations(removeStation)
-    @list_station.delete(removeStation)
+  def remove_stations(station)
+    @stations.delete(station)
   end
 
   def full_route
-    puts "Train #{@number}, route is: first station: #{@firs_station}, way stations: #{@list_station},
-last station: #{last_station}.  "
+    stations.each do |name|
+      puts name
+    end
   end
 end
 
