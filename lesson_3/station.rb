@@ -54,9 +54,12 @@ class Train
     end
   end
 
+  def gets_route(route)
+  end
+
+
 end
-station = Station.new('ABC')
-train = Train.new(1,'pass',10)
+
 
 
 class Route
