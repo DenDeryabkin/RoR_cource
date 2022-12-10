@@ -22,6 +22,7 @@ class Station
   def train_types(type)
     @trains.each { |train| train.type == type }.size
   end
+
 end
 
 
@@ -91,10 +92,9 @@ class Route
   end
 
   def full_route
-    stations.each do |name|
-      puts name
-    end
+    @stations.each { |title| puts title }
   end
+
 end
 
 
